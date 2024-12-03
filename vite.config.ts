@@ -10,6 +10,7 @@ import ElementPlus from 'unplugin-element-plus/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { configDefaults } from 'vitest/config'
+import UnoCSS from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,8 +25,9 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()]
     }),
     ElementPlus({
-      defaultLocale: 'zh-cn'
-    })
+      useSource: true
+    }),
+    UnoCSS()
   ],
   test: {
     globals: true,
@@ -38,6 +40,16 @@ export default defineConfig({
   },
   build: {
     sourcemap: true
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 自动导入定制化样式文件进行样式覆盖
+        additionalData: `
+          @use "@/assets/element/index.scss" as *;
+        `
+      }
+    }
   },
   server: {
     port: 8080,
