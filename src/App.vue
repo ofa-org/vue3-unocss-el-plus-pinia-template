@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 
 import { ElConfigProvider } from 'element-plus'
 
@@ -11,7 +11,6 @@ import { computed } from 'vue'
 const { locale } = useI18n()
 
 const eleLocale = computed(() => {
-  console.log(22, locale.value)
   return {
     zhCn,
     en
