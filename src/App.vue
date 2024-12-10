@@ -10,11 +10,13 @@ import { computed } from 'vue'
 
 const { locale } = useI18n()
 
-const eleLocale = computed(() => {
-  return {
-    zhCn,
-    en
-  }[locale.value]
+const eleLocale: any = computed(() => {
+  const locales = {
+    'zh-cn': zhCn,
+    'en': en
+  }
+  const val = locale.value as keyof typeof locales
+  return locales[val] || en
 })
 </script>
 

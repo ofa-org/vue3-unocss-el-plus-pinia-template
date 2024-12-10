@@ -9,6 +9,9 @@ import ElementPlus from 'unplugin-element-plus/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import UnoCSS from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
+
+// import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,13 +28,20 @@ export default defineConfig({
     ElementPlus({
       useSource: true
     }),
-    UnoCSS()
+    UnoCSS(),
+    Icons({})
+    // visualizer({
+    //   filename: './dist/stats.html', // 指定生成的报告文件位置
+    //   open: true, // 构建完成后自动打开报告页面
+    //   gzipSize: true, // 显示gzip压缩后的大小
+    //   brotliSize: true // 显示brotli压缩后的大小
+    // }),
   ],
   optimizeDeps: {
     include: ['vue', 'vue-router', 'pinia', 'axios']
   },
   build: {
-    sourcemap: true
+    sourcemap: false
   },
   css: {
     preprocessorOptions: {
