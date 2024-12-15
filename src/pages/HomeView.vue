@@ -1,9 +1,18 @@
-<script setup lang="ts">
-import IcBaseline14mp from '~icons/ic/baseline-14mp?width=24px&height=24px'
+<script setup lang='ts'>
+import HeaderLayout from '@/components/layout/HeaderLayout.vue'
 </script>
 
 <template>
-  home <IcBaseline14mp />
-  <div class="i-ic:baseline-14mp w-24px h-24px" />
-  <div class="i-material-symbols:10k-outline-rounded w-24px h-24px" />
+  <div>
+    <HeaderLayout />
+  </div>
+  <div class="text-4xl mt-24 text-center center">
+    登陆xxx
+
+    <div class="i-ic:baseline-14mp w-24px h-24px" />
+  </div>
 </template>
+
+<style>
+
+</style>
